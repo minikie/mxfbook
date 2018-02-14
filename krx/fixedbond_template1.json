@@ -1,0 +1,10 @@
+{
+     "inst_type": "fixed_bond",
+     "notional": 1000000000,
+     "currency": "KRW",
+     "effective_date": "2016-10-11",
+     "coupon_tenor": "6M",
+     "fixed_rate": 0.035,
+     "maturity_tenor": "5Y"
+
+}

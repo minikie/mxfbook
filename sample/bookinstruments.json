@@ -1,0 +1,10 @@
+{
+    "KR00001": {
+        "isin_code": "KR1035037160",
+        "issuevolume": 5086051000000,
+        "bond_type": "government_bond",
+        "classification": "treasury_bond"
+    },
+    "KR00002": 1000000000
+
+}

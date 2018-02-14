@@ -1,0 +1,108 @@
+{
+    "inst_id": "KRS1BC003789",
+    "instrument": {
+        "issueinfo": {
+            "isin_code": "KR1035037160",
+            "issuevolume": 5086051000000,
+            "bond_type": "government_bond",
+            "classification": "treasury_bond"
+        },
+        "notional": 1000000000,
+        "currency": "KRW",
+        "effective_date": "2016-10-11",
+        "maturity_date": "2017-10-11",
+        "inst_type": "fixed_bond",
+        "side": "long",
+        "leg": {
+            "notional": 1000000000.0,
+            "currency": "KRW",
+            "leg_type": "fixed",
+            "coupon_tenor": "6M",
+            "fixed_rate": 0.03,
+            "settlementdays": 0,
+            "daycounter": "ACT365Fixed",
+            "coupons": [
+                { "start_date": "2016-12-29", "end_date": "2017-03-29", "payoff_date": "2017-03-29" },
+                { "start_date": "2017-03-29", "end_date": "2017-06-29", "payoff_date": "2017-06-29" },
+                { "start_date": "2017-06-29", "end_date": "2017-09-29", "payoff_date": "2017-09-29" },
+                { "start_date": "2017-09-29", "end_date": "2017-12-29", "payoff_date": "2017-12-29" },
+                { "start_date": "2017-12-29", "end_date": "2018-03-29", "payoff_date": "2018-03-29" },
+                { "start_date": "2018-03-29", "end_date": "2018-06-29", "payoff_date": "2018-06-29" },
+                { "start_date": "2018-06-29", "end_date": "2018-09-29", "payoff_date": "2018-09-28" },
+                { "start_date": "2018-09-29", "end_date": "2018-12-29", "payoff_date": "2018-12-31" },
+                { "start_date": "2018-12-29", "end_date": "2019-03-29", "payoff_date": "2019-03-29" },
+                { "start_date": "2019-03-29", "end_date": "2019-06-29", "payoff_date": "2019-06-28" },
+                { "start_date": "2019-06-29", "end_date": "2019-09-29", "payoff_date": "2019-09-30" },
+                { "start_date": "2019-09-29", "end_date": "2019-12-29", "payoff_date": "2019-12-30" },
+                { "start_date": "2019-12-29", "end_date": "2020-03-29", "payoff_date": "2020-03-30" },
+                { "start_date": "2020-03-29", "end_date": "2020-06-29", "payoff_date": "2020-06-29" },
+                { "start_date": "2020-06-29", "end_date": "2020-09-29", "payoff_date": "2020-09-29" },
+                { "start_date": "2020-09-29", "end_date": "2020-12-29", "payoff_date": "2020-12-29" },
+                { "start_date": "2020-12-29", "end_date": "2021-03-29", "payoff_date": "2021-03-29" },
+                { "start_date": "2021-03-29", "end_date": "2021-06-29", "payoff_date": "2021-06-29" },
+                { "start_date": "2021-06-29", "end_date": "2021-09-29", "payoff_date": "2021-09-29" },
+                { "start_date": "2021-09-29", "end_date": "2021-12-29", "payoff_date": "2021-12-29" },
+                { "start_date": "2021-12-29", "end_date": "2022-03-29", "payoff_date": "2022-03-29" },
+                { "start_date": "2022-03-29", "end_date": "2022-06-29", "payoff_date": "2022-06-29" },
+                { "start_date": "2022-06-29", "end_date": "2022-09-29", "payoff_date": "2022-09-29" },
+                { "start_date": "2022-09-29", "end_date": "2022-12-29", "payoff_date": "2022-12-29" },
+                { "start_date": "2022-12-29", "end_date": "2023-03-29", "payoff_date": "2023-03-29" },
+                { "start_date": "2023-03-29", "end_date": "2023-06-29", "payoff_date": "2023-06-29" },
+                { "start_date": "2023-06-29", "end_date": "2023-09-29", "payoff_date": "2023-09-29" },
+                { "start_date": "2023-09-29", "end_date": "2023-12-29", "payoff_date": "2023-12-29" },
+                { "start_date": "2023-12-29", "end_date": "2024-03-29", "payoff_date": "2024-03-29" },
+                { "start_date": "2024-03-29", "end_date": "2024-06-29", "payoff_date": "2024-06-28" },
+                { "start_date": "2024-06-29", "end_date": "2024-09-29", "payoff_date": "2024-09-30" },
+                { "start_date": "2024-09-29", "end_date": "2024-12-29", "payoff_date": "2024-12-30" },
+                { "start_date": "2024-12-29", "end_date": "2025-03-29", "payoff_date": "2025-03-31" },
+                { "start_date": "2025-03-29", "end_date": "2025-06-29", "payoff_date": "2025-06-30" },
+                { "start_date": "2025-06-29", "end_date": "2025-09-29", "payoff_date": "2025-09-29" },
+                { "start_date": "2025-09-29", "end_date": "2025-12-29", "payoff_date": "2025-12-29" },
+                { "start_date": "2025-12-29", "end_date": "2026-03-29", "payoff_date": "2026-03-30" },
+                { "start_date": "2026-03-29", "end_date": "2026-06-29", "payoff_date": "2026-06-29" },
+                { "start_date": "2026-06-29", "end_date": "2026-09-29", "payoff_date": "2026-09-29" },
+                { "start_date": "2026-09-29", "end_date": "2026-12-29", "payoff_date": "2026-12-29" }
+            ]
+        }
+
+    },
+    "parameter": {
+        "engine_type": "discountbondengine",
+        "evaluation_date": "2016-12-29",
+        "zspread": 0.0,
+        "discount_curve": {
+            "interpolation": "Linear",
+            "daycounter": "ACT365Fixed",
+            "values": [
+                { "tenor": "1D", "rate": 0.0147 },
+                { "tenor": "3M", "rate": 0.01664 },
+                { "tenor": "6M", "rate": 0.01646 },
+                { "tenor": "9M", "rate": 0.01631 },
+                { "tenor": "12M", "rate": 0.01625 },
+                { "tenor": "18M", "rate": 0.01638 },
+                { "tenor": "24M", "rate": 0.01652 },
+                { "tenor": "30M", "rate": 0.01679 },
+                { "tenor": "36M", "rate": 0.01707 },
+                { "tenor": "48M", "rate": 0.01768 },
+                { "tenor": "60M", "rate": 0.01824 },
+                { "tenor": "84M", "rate": 0.01917 },
+                { "tenor": "120M", "rate": 0.02031 },
+                { "tenor": "180M", "rate": 0.02117 },
+                { "tenor": "240M", "rate": 0.02149 }
+            ]
+        }
+    },
+    "result": {
+        "result_type": "vanillaoption_result",
+        "values": {
+            "npv": 0.3,
+            "mac_duration": 0.3,
+            "mod_duration": 0.3
+        },
+        "greeks": {
+            "CD": { "delta": 32432,
+                    "gamma": 32144
+            }
+        }
+    }
+}
