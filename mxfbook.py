@@ -1,5 +1,6 @@
 ﻿import instrument as inst
-import models
+import module.models as models
+from module.database import db_session
 import datetime
 import json
 
@@ -7,36 +8,31 @@ def login(id,pw):
     # check user
     models.LoginID = id
 
-    print 'login success'
+    print ('login success')
 
 
 def logout():
     models.LoginID = None
 
 
-def is_exist(name):
-    try:
-        book = models.MxfBook.get(name=name)
-        return True
-    except models.DoesNotExist:
-        return False
-
-
 def get_or_make_book(name):
-    try:
-        return models.MxfBook.get(name=name)
-    except models.DoesNotExist:
+    book  = db_session.query(models.MxfBook).filter_by(name=name).first()
+    if book is None:
         return make_book(name)
+    else:
+        return book
 
 
 def make_book(name):
     if models.LoginID is None:
         raise Exception('Login is needed')
 
-    book = models.MxfBook.create(name=name,
-                                 user=models.LoginID,
-                                 created_date=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                 instruments='''{  }''')
+    instruments = '''{  }'''
+
+    book  = models.MxfBook(name=name, user=models.LoginID, created_date=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),instruments=instruments)
+    db_session.add(book)
+    db_session.commit()
+
     return book
 
 

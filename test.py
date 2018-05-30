@@ -1,17 +1,21 @@
 import mxfbook as mxb
+from module.database import db_session, init_db
+import module.models as models
 import kyobobuilder
 import json
-import models
+import sys
 
-
+init_db()
 # implementation list
 # 1. booking , delete ,
 
+# print 'Number of arguments:', len(sys.argv), 'arguments.'
+# print 'Argument List:', str(sys.argv)
+# Number of arguments: 4 arguments.
+# Argument List: ['test.py', 'arg1', 'arg2', 'arg3']
+
 mxb.login('minikie@naver.com', 'testpasword')
 # mxb.logout()
-
-# book1 = mxb.make_book()
-# book2 = mxb.make_book()
 
 trading_book = mxb.get_or_make_book('trading')
 
@@ -35,15 +39,17 @@ trading_book.booking(inst)
 ## book insert
 
 
-print trading_book.instruments
+print(trading_book.instruments)
 
-for m in models.InstrumentMaster.select():
-    print 'instrument : ' + m.name
+print ()
+
+for m in db_session.query(models.InstrumentMaster).all():
+    print('instrument : ' + m.name)
 
 for b in models.MxfBook.select():
-    print 'book : ' + b.name
+    print('book : ' + b.name)
 
-print json.dumps(inst)
+print(json.dumps(inst))
 
 
 
