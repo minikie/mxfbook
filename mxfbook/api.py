@@ -45,36 +45,40 @@ def get_or_make_book(name):
 
 def bookinfo(args):
     if len(args) == 0:
-        exit()
+        return 'argment is empty'
 
     book_nm = args[0]
     book = get_or_make_book(book_nm)
-    print('bookinfo is called : ' + book_nm)
+    return 'bookinfo is called : ' + book_nm
 
 
 def booklist(args):
-    print('booklist is called')
+    return 'booklist is called'
 
 
 def instinfo(args):
-    print('instinfo is called')
+    return  'instinfo is called'
 
 
 def login(args):
-    print('login is called')
+    return  'login is called'
 
 
 def main(func_nm, args):
+    exit(_main(func_nm, args))
+
+
+def _main(func_nm, args):
     if func_nm == 'bookinfo':
-        bookinfo(args)
+        return bookinfo(args)
     elif func_nm == 'booklist':
-        booklist(args)
+        return booklist(args)
     elif func_nm == 'instinfo':
-        instinfo(args)
+        return instinfo(args)
     elif func_nm == 'login':
-        login(args)
+        return login(args)
     else:
-        print('invalid call : ' + func_nm)
+        return 'invalid call : ' + func_nm
 
 
 if __name__ == '__main__':
