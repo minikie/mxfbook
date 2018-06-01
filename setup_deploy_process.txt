@@ -1,0 +1,6 @@
+https://rampart81.github.io/post/python_package_publish/ 여기서 비슷하게 함
+python 설치된 곳 scripts 디렉토리에 pip있음
+거기서 pip install wheel 이랑 pip install setuptools  해야함
+그러고 와서 python.exe setup.py bdist_wheel 하면 디렉토리 dist에 배포파일생김
+그거 python -m pip install mxfbook-0.1.1-py2-none-any.whl 하면됨
+버전은 알아서 올려서 다시 빌드하면 되고..
