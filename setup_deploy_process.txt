@@ -4,3 +4,5 @@ python 설치된 곳 scripts 디렉토리에 pip있음
 그러고 와서 python.exe setup.py bdist_wheel 하면 디렉토리 dist에 배포파일생김
 그거 python -m pip install mxfbook-0.1.1-py2-none-any.whl 하면됨
 버전은 알아서 올려서 다시 빌드하면 되고..
+
+python setup.py bdist_wheel -> 배포파일 만들기

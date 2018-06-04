@@ -3,6 +3,7 @@ import os
 from module.database import init_db, db_session
 import module.models as models
 import datetime
+import json
 
 init_db()
 
@@ -43,20 +44,23 @@ def get_or_make_book(name):
         return book
 
 
-def bookinfo(args):
-    if len(args) == 0:
-        return 'argment is empty'
-
-    book_nm = args[0]
+def bookinfo(book_nm):
     book = get_or_make_book(book_nm)
+
     return 'bookinfo is called : ' + book_nm
 
 
-def booklist(args):
-    return 'booklist is called'
+def booklist():
+    books = db_session.query(models.MxfBook).all()
+
+    b = []
+    for book in books:
+        b.append(json.dumps(book.__dict__))
+
+    return str(b)
 
 
-def instinfo(args):
+def instinfo(inst_nm):
     return  'instinfo is called'
 
 
@@ -65,7 +69,8 @@ def login(args):
 
 
 def main(func_nm, args):
-    exit(_main(func_nm, args))
+    #exit(_main(func_nm, args))
+    print (_main(func_nm, args))
 
 
 def _main(func_nm, args):

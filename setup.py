@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name             = 'mxfbook',
-    version          = '0.1.10',
+    version          = '0.1.11',
     description      = 'python financial book',
     author           = 'montrix',
     author_email     = 'master@montrix.co.kr',
