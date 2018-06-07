@@ -5,7 +5,7 @@ import json
 from uuid import UUID
 import datetime
 
-engine = create_engine('sqlite:///test.db', convert_unicode=True, echo=False)
+engine = create_engine('sqlite:///test.db', convert_unicode=True, echo=True)
 
 # http://docs.sqlalchemy.org/en/latest/orm/session_basics.html
 

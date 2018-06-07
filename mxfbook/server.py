@@ -2,7 +2,7 @@ from werkzeug.wrappers import Request, Response
 from werkzeug.serving import run_simple
 
 from jsonrpc import JSONRPCResponseManager, dispatcher
-import api
+import api.v1.book as bookapi
 
 port = 4000
 
@@ -18,14 +18,18 @@ def test(a,b):
 @Request.application
 def application(request):
     # Dispatcher is dictionary {<method_name>: callable}
-    dispatcher["echo"] = lambda s: s
-    dispatcher["add"] = lambda a, b: a + b
-    dispatcher["test"] = test
 
-    dispatcher["booklist"] = api.booklist
-    dispatcher["bookinfo"] = api.bookinfo
-    dispatcher["instinfo"] = api.instinfo
+    #if request.path == '/api/v1':
 
+    dispatcher["getbooklist"] = bookapi.bookinfo
+    dispatcher["getbooklist"] = bookapi.booklist
+    dispatcher["makebook"] = bookapi.makebook
+    dispatcher["removebook"] = bookapi.removebook
+
+    dispatcher["instinfo"] = bookapi.instinfo
+    dispatcher["bookinginst"] = bookapi.bookinginst
+    dispatcher["removeinst"] = bookapi.removeinst
+    dispatcher["moveinst"] = bookapi.moveinst
 
     response = JSONRPCResponseManager.handle(
         request.data, dispatcher)
@@ -37,4 +41,5 @@ def run():
 
 
 if __name__ == '__main__':
+    print ('start')
     run_simple('localhost', port, application, )

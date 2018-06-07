@@ -20,6 +20,10 @@ class InstrumentMaster(Base):
     name = Column(String(120), unique=True)
     contents = Column(Text, unique=False)
 
+    def __init__(self, name=None, contents=None):
+        self.name = name
+        self.contents = contents
+
 
 class IRSPostion(Base):
     __tablename__ = 'irs_position'
@@ -52,6 +56,18 @@ class MxfBook(Base):
     def __repr__(self):
         return '<Name %r>' % (self.name)
 
+    def to_json(self):
+        d={}
+        d['id'] = self.id
+        d['name'] = self.name
+        d['user'] = self.user
+        d['instruments'] = json.loads(self.instruments)
+        d['created_date'] = self.created_date
+        d['closed_date'] = self.closed_date
+        d['is_opened'] = self.is_opened
+
+        return d
+
     def booking(self, inst):
         inst['booked_time'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         booked_insts = json.loads(self.instruments)
@@ -75,6 +91,7 @@ class MxfBook(Base):
 
         db_session.add(inst_master)
         db_session.commit()
+
 
 
 
