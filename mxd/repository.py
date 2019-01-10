@@ -1,12 +1,9 @@
-import sqlite3
+import database as db
 from variables import *
 
-# ws : workspace name
-# var : variable name
+
 def get_variable(ws_name, var_name):
     return Variable()
-
-
 
 
 

@@ -16,6 +16,12 @@ class Workspace:
     def name(self):
         return self.meta_.name
 
+    def variables(self):
+        def parse_variable(key):
+            k = key[0].split('.')
+            return Variable(k[0], k[1])
+
+        return [parse_variable(v[0]) for v in db.load_variables_in_workspace(self.name())]
 
 class Variable:
     def __init__(self, ws_name, var_name):
@@ -30,7 +36,7 @@ class Variable:
     def value(self):
         res = db.load_variable_value(self.meta_.name, self.meta_.name)
 
-        if self.meta_.var_type == 'default':
+        if self.meta_.var_type == 'default' or self.meta_.var_type == 'cell' :
             return np.genfromtxt(StringIO(res),delimiter=",")
         elif self.meta_.var_type == 'double':
             return np.genfromtxt(StringIO(res),delimiter=",")
