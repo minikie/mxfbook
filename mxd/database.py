@@ -15,9 +15,10 @@ def initialize(appname):
     #     settings = json.load(f)
 
     #db_filie = os.path.join(settings['GeneralOptionCategory_']['RepositoryDirectory_'], appname, 'BlobCache', 'userblobs.db')
-    db_filie = os.path.join('C:\\Users\\09928829\\Downloads\\userblobs.db')
+    #db_filie = os.path.join('C:\\Users\\09928829\\Downloads\\userblobs.db')
+    db_filie = os.path.join('userblobs.db')
 
-    print db_filie
+    print db_filie + ' load success!'
 
     global conn
     conn = sqlite3.connect(db_filie)
@@ -41,8 +42,8 @@ def load_variables_in_workspace(ws_name):
     param = {'type_name': 'metadata'}
     cursor = conn.cursor()
     cursor.execute(sql, param)
-    name, ws_meta = cursor.fetchone()
-    return [v for v in cursor.fetch()]
+    #name, ws_meta = cursor.fetchone()
+    return [ v for v in cursor.fetchall() ]
 
 def load_variable_meta_json(ws_name, var_name):
     sql = "SELECT Key, TypeName, Value FROM CacheElement WHERE KEY=:key and TypeName=:type_name"
@@ -65,14 +66,14 @@ def load_variable_value(ws_name, var_name):
     cursor.execute(sql, param)
     value  = cursor.fetchone()
 
-    print 'value : ' + str(bson.loads(value[2]))
-    decoded_doc =  io.BytesIO(value[2])
+    # print 'value : ' + str(bson.loads(value[2]))
+    # decoded_doc =  io.BytesIO(value[2])
 
     return value
     #return va.encode("utf-8")
 
 
 initialize('mytest')
-load_variable_meta_json('ws', 'newVar')
-load_variable_value('ws', 'newVar')
-load_workspace_meta_json()
+# load_variable_meta_json('ws', 'newVar')
+# load_variable_value('ws', 'newVar')
+# load_workspace_meta_json()
