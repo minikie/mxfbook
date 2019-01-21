@@ -1,22 +1,22 @@
 import sqlite3
 import win32com.client
 import winpaths
-import json, bson
+import json
 import os, io
 
 conn = None
-applicationName = 'test'
+applicationName = 'mytest'
 settings = None
 
 
 def initialize(appname):
-    # global settings
-    # with open(os.path.join(winpaths.get_appdata(), 'Montrix', 'MxExcelAddIn', 'settings', 'settings.json')) as f:
-    #     settings = json.load(f)
+    global settings
+    with open(os.path.join(winpaths.get_appdata(), 'Montrix', 'MxExcelAddIn', 'settings', 'settings.json')) as f:
+        settings = json.load(f)
 
-    #db_filie = os.path.join(settings['GeneralOptionCategory_']['RepositoryDirectory_'], appname, 'BlobCache', 'userblobs.db')
+    db_filie = os.path.join(settings['GeneralOptionCategory_']['RepositoryDirectory_'], appname, 'BlobCache', 'userblobs.db')
     #db_filie = os.path.join('C:\\Users\\09928829\\Downloads\\userblobs.db')
-    db_filie = os.path.join('userblobs.db')
+    #db_filie = os.path.join('userblobs.db')
 
     print db_filie + ' load success!'
 
@@ -29,12 +29,12 @@ def load_workspace_meta_json(ws_name):
 
     #sql = "SELECT Key, TypeName, Value FROM CacheElement WHERE TypeName='MxExcelAddInUI.WorkspaceKeyManager+WorkSapce' and KEY=:key"
     sql = "SELECT Key, TypeName, Value FROM CacheElement WHERE KEY=:key and TypeName=:type_name"
-    param = { 'key':  ws_name, 'type_name' : 'workspace'}
+    param = { 'key':  ws_name, 'type_name' : 'ws_metadata'}
     cursor = conn.cursor()
     cursor.execute(sql, param)
-    name, ws_meta = cursor.fetchone()
+    ws_meta = cursor.fetchone()
 
-    return ws_meta.encode("utf-8")
+    return ws_meta
 
 
 def load_variables_in_workspace(ws_name):
@@ -43,7 +43,8 @@ def load_variables_in_workspace(ws_name):
     cursor = conn.cursor()
     cursor.execute(sql, param)
     #name, ws_meta = cursor.fetchone()
-    return [ v for v in cursor.fetchall() ]
+    return [v for v in cursor.fetchall() ]
+
 
 def load_variable_meta_json(ws_name, var_name):
     sql = "SELECT Key, TypeName, Value FROM CacheElement WHERE KEY=:key and TypeName=:type_name"
@@ -52,7 +53,7 @@ def load_variable_meta_json(ws_name, var_name):
     cursor.execute(sql, param)
     meta = cursor.fetchone()
 
-    print 'meta : ' + str(meta)
+    # print 'meta : ' + str(meta)
     return meta
     #return value.encode("utf-8")
 
@@ -73,7 +74,7 @@ def load_variable_value(ws_name, var_name):
     #return va.encode("utf-8")
 
 
-initialize('mytest')
+# initialize('mytest')
 # load_variable_meta_json('ws', 'newVar')
 # load_variable_value('ws', 'newVar')
 # load_workspace_meta_json()
