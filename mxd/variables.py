@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 import json
 import database as db
 from io import StringIO
@@ -9,9 +8,11 @@ from ast import literal_eval as make_tuple
 def _json_object_hook(d): return namedtuple('X', d.keys())(*d.values())
 def json2obj(str_data): return json.loads(str_data, object_hook=_json_object_hook)
 
+
 class Workspace:
     def __init__(self, ws_name):
-        self.meta_ = json2obj(db.load_workspace_meta_json(ws_name))
+        res = db.load_workspace_meta_json(ws_name)
+        self.meta_ = json2obj(str(res[2]))
 
     def name(self):
         return self.meta_.name
@@ -38,7 +39,7 @@ class Variable:
     def value(self):
         res = db.load_variable_value(self.meta_.workspace, self.meta_.name)
 
-        if self.meta_.type == 0 or self.meta_.type == 'default' :
+        if self.meta_.type == 0 or self.meta_.type == 'default':
             #sss =
             lines = str.splitlines(str(res[2]))
             return np.array([str.split(line,',') for line in lines], np.str)

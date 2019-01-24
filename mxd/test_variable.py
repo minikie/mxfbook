@@ -1,5 +1,7 @@
 import repository as repo
+import database as db
 
+db.initialize('mytest')
 
 # usage
 ws_name1 = 'ws'

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name             = 'mxd',
-    version          = '0.1.0',
+    version          = '0.1.2',
     description      = 'python library for mxdex',
     author           = 'montrix',
     author_email     = 'master@montrix.co.kr',
